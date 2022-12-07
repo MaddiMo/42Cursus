@@ -1,53 +1,45 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_atoi.c                                          :+:      :+:    :+:   */
+/*   ft_strcat.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mmonclus <mmonclus@student.42urduliz.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/11/29 20:09:19 by mmonclus          #+#    #+#             */
-/*   Updated: 2022/12/06 13:21:48 by mmonclus         ###   ########.fr       */
+/*   Created: 2022/12/05 16:10:42 by mmonclus          #+#    #+#             */
+/*   Updated: 2022/12/07 18:15:04 by mmonclus         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdio.h>
-#include <stdlib.h>
 
-int	ft_atoi(const char *str)
+char	*ft_strcat(char *dst, const char *src)
 {
 	int	i;
-	int	numb;
-	int	sign;
+	int	j;
 
 	i = 0;
-	sign = 1;
-	numb = 0;
-	while (str[i] == 32 || (str[i] >= 9 && str[i] <= 13))
-		i++;
-	while (str[i] == '-' || str[i] == '+')
-	{
-		if (str[i] == '-')
-			sign = sign * -1;
-		i++;
-		numb++;
-	}
-	if (numb > 1)
+	j = 0;
+	if (dst[i] == 0 || src[j] == 0)
 		return (0);
-	numb = 0;
-	while (str[i] >= 48 && str[i] <= 57)
+	while (dst[i])
+		i++;
+	while (src[j])
 	{
-		numb = (str[i] - '0') + (numb * 10);
+		dst[i] = src[j];
+		j++;
 		i++;
 	}
-	return (numb * sign);
+	dst[i] = '\0';
+	return (dst);
 }
 
 /*
 int	main(void)
 {
-    char	*str = "  34 -234ab567";
+	char		dst[] = "hola";
+	const char	src[]= "no";
 
-	printf("%d\n", ft_atoi(str));
-	printf("%d", atoi(str));
+	printf("%s", ft_strcat(dst, src));
+	return (0);
 }
 */

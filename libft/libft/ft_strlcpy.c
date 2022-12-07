@@ -1,30 +1,42 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_isalnum.c                                       :+:      :+:    :+:   */
+/*   ft_strlcpy.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mmonclus <mmonclus@student.42urduliz.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/11/29 12:24:01 by mmonclus          #+#    #+#             */
-/*   Updated: 2022/12/06 13:23:32 by mmonclus         ###   ########.fr       */
+/*   Created: 2022/12/05 11:07:12 by mmonclus          #+#    #+#             */
+/*   Updated: 2022/12/05 13:27:46 by mmonclus         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-#include <ctype.h>
 
-int	ft_isalnum(int c)
+size_t	ft_strlcpy(char *dst, const char *src, size_t dstsize)
 {
-	if ((c >= 48 && c <= 57) || (c >= 65 && c <= 90) || (c >= 97 && c <= 122))
-		return (1);
-	else
-		return (0);
+	size_t	i;
+
+	i = 0;
+	if (dstsize != 0)
+	{
+		while (src[i] && i < (dstsize - 1))
+		{
+			dst[i] = src[i];
+			i++;
+		}
+		dst[i] = '\0';
+	}
+	return (ft_strlen(src));
 }
 
-/* int	main(void)
+/*
+int main(void)
 {
-	printf ("%d\n", ft_isalnum('9'));
-	printf ("%d", isalnum('9'));
-	return (0);
+	char dst[] = "hello hello";
+	const char src[] = "Hambree";
+
+	printf("%zu - %s\n", strlcpy(dst, src, 10), dst);
+	printf("%zu - %s", ft_strlcpy(dst, src, 10), dst);
+	return(0);
 }
- */
+*/

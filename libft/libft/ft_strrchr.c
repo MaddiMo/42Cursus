@@ -1,30 +1,44 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_isalnum.c                                       :+:      :+:    :+:   */
+/*   ft_strrchr.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mmonclus <mmonclus@student.42urduliz.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/11/29 12:24:01 by mmonclus          #+#    #+#             */
-/*   Updated: 2022/12/06 13:23:32 by mmonclus         ###   ########.fr       */
+/*   Created: 2022/12/07 21:07:21 by mmonclus          #+#    #+#             */
+/*   Updated: 2022/12/07 21:53:35 by mmonclus         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-#include <ctype.h>
+#include <string.h>
+#include <stdio.h>
 
-int	ft_isalnum(int c)
+/* PAQUITO NO LO PASA!!!!
+ */
+
+size_t	ft_strlen(const char *str);
+
+char	*ft_strrchr(const char *s, int c)
 {
-	if ((c >= 48 && c <= 57) || (c >= 65 && c <= 90) || (c >= 97 && c <= 122))
-		return (1);
-	else
-		return (0);
+	size_t	i;
+	char	*str;
+
+	str = (char *)s;
+	i = ft_strlen(str);
+	while (str[i] != (char)c)
+		i--;
+	if (str[i] == (char)c)
+		return (&str[i]);
+	return (0);
 }
 
 /* int	main(void)
 {
-	printf ("%d\n", ft_isalnum('9'));
-	printf ("%d", isalnum('9'));
-	return (0);
+	const char s[] = "helso";
+	int	c = 'x';
+
+	printf("%s\n", ft_strrchr(s, c));
+	printf("%s", strrchr(s, c));
 }
  */

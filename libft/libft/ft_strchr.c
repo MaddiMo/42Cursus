@@ -1,30 +1,40 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_isalnum.c                                       :+:      :+:    :+:   */
+/*   ft_strchr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mmonclus <mmonclus@student.42urduliz.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/11/29 12:24:01 by mmonclus          #+#    #+#             */
-/*   Updated: 2022/12/06 13:23:32 by mmonclus         ###   ########.fr       */
+/*   Created: 2022/12/05 18:03:09 by mmonclus          #+#    #+#             */
+/*   Updated: 2022/12/07 21:29:17 by mmonclus         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
-#include <ctype.h>
+#include <stdio.h>
+#include <string.h>
 
-int	ft_isalnum(int c)
+char	*ft_strchr(const char *s, int c)
 {
-	if ((c >= 48 && c <= 57) || (c >= 65 && c <= 90) || (c >= 97 && c <= 122))
-		return (1);
-	else
-		return (0);
+	int		i;
+	char	*str;
+
+	i = 0;
+	str = (char *)s;
+	while (str[i] != (char)c)
+	{
+		if (str[i] == '\0')
+			return (0);
+		i++;
+	}
+	return (&str[i]);
 }
 
 /* int	main(void)
 {
-	printf ("%d\n", ft_isalnum('9'));
-	printf ("%d", isalnum('9'));
-	return (0);
+	const char s[] = "hello-";
+	int	c = 'e';
+
+	printf("%s\n", ft_strchr(s, '-'));
+	printf("%s", strchr(s, '-'));
 }
  */
