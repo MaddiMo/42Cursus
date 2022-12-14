@@ -6,16 +6,32 @@
 #    By: mmonclus <mmonclus@student.42urduliz.co    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/11/29 16:42:50 by mmonclus          #+#    #+#              #
-#    Updated: 2022/12/02 17:50:51 by mmonclus         ###   ########.fr        #
+#    Updated: 2022/12/14 17:03:17 by mmonclus         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME = libft.a
+NAME	= libft.a
 
-SRC =	$(shell find . -name "*.c")
-#es como ir llamando a todas las funciones que he creado
+LIB		=	ft_atoi.c		\
+			ft_isalnum.c	\
+			ft_isalpha.c	\
+			ft_isascii.c	\
+			ft_isdigit.c	\
+			ft_isprint.c	\
+			ft_strlen.c 	\
+			ft_tolower.c	\
+			ft_toupper.c	\
+			ft_strlcpy.c	\
+			ft_strlcat.c	\
+			ft_strlcat1.c	\
+			ft_strchr.c		\
+			ft_strrchr.c	\
+			ft_memcpy.c		\
+			ft_memset.c		\
+			ft_bzero.c		\
+			ft_memmove.c	\
 
-OBJS = $(SRC:%.c=%.o)
+OBJS = $(LIB:%.c=%.o)
 
 CC = gcc
 
@@ -27,7 +43,7 @@ $(NAME): $(OBJS)
 
 	ar rc $(NAME) $(OBJS)
 
-$(OBJS): $(SRC)
+$(OBJS): $(LIB)
 	$(CC) $(CFLAGS) -c $^
 	
 clean:
