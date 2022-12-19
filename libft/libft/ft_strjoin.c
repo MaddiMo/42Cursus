@@ -1,47 +1,51 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlcat.c                                       :+:      :+:    :+:   */
+/*   ft_strjoin.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mmonclus <mmonclus@student.42urduliz.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/12/07 17:40:44 by mmonclus          #+#    #+#             */
-/*   Updated: 2022/12/09 16:36:51 by mmonclus         ###   ########.fr       */
+/*   Created: 2022/12/19 15:26:15 by mmonclus          #+#    #+#             */
+/*   Updated: 2022/12/19 17:56:01 by mmonclus         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
+#include <ctype.h>
+#include <stdlib.h>
 #include <string.h>
-#include <stdio.h>
 
-size_t	ft_strlcat(char *dst, const char *src, size_t dstsize)
+char	*ft_strjoin(char const *s1, char const *s2)
 {
-	size_t	i;
-	size_t	j;
+	char	*aux;
+	int		i;
+	int		j;
 
-	i = 0;
-	while (dst[i] && i < dstsize)
-		i++;
+	i = -1;
+	aux = (char *)malloc((ft_strlen(s1) + ft_strlen(s2) + 1) * sizeof(char));
+	if (!aux)
+		return (0);
+	if (!s1 && !s2)
+		return (0);
+	while (s1[++i])
+		aux[i] = s1[i];
 	j = 0;
-	while (src[j] && i + j + 1 < dstsize)
+	while (s2[j])
 	{
-		dst[i + j] = src[j];
+		aux[i] = s2[j];
 		j++;
+		i++;
 	}
-	if (i + j < dstsize)
-		dst[i + j] = '\0';
-	return (i + ft_strlen(src));
+	aux[i] = '\0';
+	return (aux);
 }
 
 /* int	main(void)
 {
-	char		dst[] = "hellopeople";
-	const char	src[]= "comi";
-	char		dst1[] = "hellopeople";
-	const char	src1[] = "comi";
+	char	s1[] = "hola";
+	char	s2[] = "hello";
 
-	printf("%zu\n", ft_strlcat(dst, src, 13));
-	printf("%zu\n", strlcat(dst1, src1, 13));
+	printf ("%s", ft_strjoin(s1, s2));
 	return (0);
-}
+} 
  */

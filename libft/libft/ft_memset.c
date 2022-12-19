@@ -1,43 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strrchr.c                                       :+:      :+:    :+:   */
+/*   ft_memset.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mmonclus <mmonclus@student.42urduliz.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/12/07 21:07:21 by mmonclus          #+#    #+#             */
-/*   Updated: 2022/12/15 14:46:38 by mmonclus         ###   ########.fr       */
+/*   Created: 2022/12/14 11:18:48 by mmonclus          #+#    #+#             */
+/*   Updated: 2022/12/14 15:37:01 by mmonclus         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include <stdio.h>
+#include <string.h>
 #include "libft.h"
 
-char	*ft_strrchr(const char *s, int c)
+void	*ft_memset(void *ptr, int c, size_t n)
 {
-	int		i;
-	char	*ptr;
+	size_t	i;
 
 	i = 0;
-	ptr = NULL;
-	if ((char)c == '\0')
-		return ((char *)&s[ft_strlen(s)]);
-	if (s[i] == '\0')
-		return (0);
-	while (s[i])
-	{	
-		if (s[i] == (char)c)
-			ptr = (char *)&s[i];
-		i++;
-	}
+	while (i < n)
+		((unsigned char *)ptr)[i++] = (char)c;
 	return (ptr);
 }
 
 /* int	main(void)
 {
-	const char s[] = "heselso";
-	int	c = 's';
+	char ptr[10]= "hellohello";
 
-	printf("%s\n", ft_strrchr(s, c));
-	printf("%s", strrchr(s, c));
+	printf("%s\n", ft_memset(ptr, 'a', 2));
+	printf("%s", memset(ptr, 'a', 2));
+	return (0);
 }
-  */
+ */

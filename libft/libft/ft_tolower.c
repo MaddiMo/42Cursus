@@ -6,7 +6,7 @@
 /*   By: mmonclus <mmonclus@student.42urduliz.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/04 19:12:54 by mmonclus          #+#    #+#             */
-/*   Updated: 2022/12/04 19:54:22 by mmonclus         ###   ########.fr       */
+/*   Updated: 2022/12/15 17:27:39 by mmonclus         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ int	ft_tolower(int c)
 	return (c);
 }
 
-/*
+/* 
 int main(void)
 {
 	unsigned char c = 'M';
@@ -27,4 +27,4 @@ int main(void)
 	printf ("Lower case: %c", ft_tolower(c));
 	return(0);
 }
-*/
+ */

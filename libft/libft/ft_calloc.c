@@ -1,47 +1,41 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlcat.c                                       :+:      :+:    :+:   */
+/*   ft_calloc.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mmonclus <mmonclus@student.42urduliz.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/12/07 17:40:44 by mmonclus          #+#    #+#             */
-/*   Updated: 2022/12/09 16:36:51 by mmonclus         ###   ########.fr       */
+/*   Created: 2022/12/19 11:42:26 by mmonclus          #+#    #+#             */
+/*   Updated: 2022/12/19 16:08:09 by mmonclus         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
+#include <ctype.h>
+#include <stdlib.h>
 #include <string.h>
-#include <stdio.h>
 
-size_t	ft_strlcat(char *dst, const char *src, size_t dstsize)
+void	*ft_calloc(size_t count, size_t size)
 {
+	void	*aux;
 	size_t	i;
-	size_t	j;
 
 	i = 0;
-	while (dst[i] && i < dstsize)
-		i++;
-	j = 0;
-	while (src[j] && i + j + 1 < dstsize)
+	aux = (char *)malloc(count * size);
+	if (!aux)
+		return (0);
+	while (i < count * size)
 	{
-		dst[i + j] = src[j];
-		j++;
+		((char *)aux)[i] = '\0';
+		i++;
 	}
-	if (i + j < dstsize)
-		dst[i + j] = '\0';
-	return (i + ft_strlen(src));
+	return (aux);
 }
 
 /* int	main(void)
 {
-	char		dst[] = "hellopeople";
-	const char	src[]= "comi";
-	char		dst1[] = "hellopeople";
-	const char	src1[] = "comi";
-
-	printf("%zu\n", ft_strlcat(dst, src, 13));
-	printf("%zu\n", strlcat(dst1, src1, 13));
+	printf("%s", calloc(4, 5));
+	printf("%s", ft_calloc1(4, 5));
 	return (0);
 }
  */

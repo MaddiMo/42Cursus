@@ -1,43 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strrchr.c                                       :+:      :+:    :+:   */
+/*   ft_bzero.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mmonclus <mmonclus@student.42urduliz.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/12/07 21:07:21 by mmonclus          #+#    #+#             */
-/*   Updated: 2022/12/15 14:46:38 by mmonclus         ###   ########.fr       */
+/*   Created: 2022/12/14 13:36:51 by mmonclus          #+#    #+#             */
+/*   Updated: 2022/12/15 09:48:02 by mmonclus         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include <stdio.h>
+#include <string.h>
 #include "libft.h"
 
-char	*ft_strrchr(const char *s, int c)
+void	ft_bzero(void *s, size_t n)
 {
-	int		i;
-	char	*ptr;
+	size_t	i;
 
-	i = 0;
-	ptr = NULL;
-	if ((char)c == '\0')
-		return ((char *)&s[ft_strlen(s)]);
-	if (s[i] == '\0')
-		return (0);
-	while (s[i])
-	{	
-		if (s[i] == (char)c)
-			ptr = (char *)&s[i];
-		i++;
-	}
-	return (ptr);
+	i = -1;
+	while (++i < n)
+		((unsigned char *)s)[i] = 0;
 }
 
 /* int	main(void)
 {
-	const char s[] = "heselso";
-	int	c = 's';
+	char s[60] = "hello";
 
-	printf("%s\n", ft_strrchr(s, c));
-	printf("%s", strrchr(s, c));
+	printf ("%s\n", &s[0]);
+	ft_bzero(s, 3);
+	printf ("%s\n", s);
+	printf ("%s\n", &s[1]);
+	printf ("%s\n", &s[4]);
+	return (0);
 }
-  */
+ */
