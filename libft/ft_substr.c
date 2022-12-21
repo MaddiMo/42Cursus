@@ -1,41 +1,56 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_calloc.c                                        :+:      :+:    :+:   */
+/*   ft_substr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mmonclus <mmonclus@student.42urduliz.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/12/19 11:42:26 by mmonclus          #+#    #+#             */
-/*   Updated: 2022/12/19 16:08:09 by mmonclus         ###   ########.fr       */
+/*   Created: 2022/12/19 12:39:59 by mmonclus          #+#    #+#             */
+/*   Updated: 2022/12/19 18:20:01 by mmonclus         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include <stdio.h>
+#include <string.h>
 #include "libft.h"
 #include <ctype.h>
 #include <stdlib.h>
 #include <string.h>
 
-void	*ft_calloc(size_t count, size_t size)
+char	*ft_substr(char const *s, unsigned int start, size_t len)
 {
-	void	*aux;
+	char	*aux;
 	size_t	i;
 
-	i = 0;
-	aux = (char *)malloc(count * size);
+	if (!s)
+		return (0);
+	if (len > ft_strlen(s))
+		len = ft_strlen(s);
+	aux = (char *)malloc((len + 1) * sizeof(char));
 	if (!aux)
 		return (0);
-	while (i < count * size)
-	{
-		((char *)aux)[i] = '\0';
-		i++;
+	i = 0;
+	while (start > ft_strlen(s))
+	{	
+		aux[i] = '\0';
+		return (aux);
 	}
+	while (len > 0 && s[start])
+	{
+		aux[i] = s[start];
+		i++;
+		start++;
+		len--;
+	}
+	aux[i] = '\0';
 	return (aux);
 }
 
 /* int	main(void)
 {
-	printf("%s", calloc(4, 5));
-	printf("%s", ft_calloc1(4, 5));
+	char s[] = "hola";
+
+	printf("%s\n", ft_substr(s, 2, 30));
 	return (0);
 }
  */

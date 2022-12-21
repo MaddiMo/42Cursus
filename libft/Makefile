@@ -6,7 +6,7 @@
 #    By: mmonclus <mmonclus@student.42urduliz.co    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/11/29 16:42:50 by mmonclus          #+#    #+#              #
-#    Updated: 2022/12/19 10:32:17 by mmonclus         ###   ########.fr        #
+#    Updated: 2022/12/19 15:44:53 by mmonclus         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -35,6 +35,8 @@ LIB		=	ft_atoi.c		\
 			ft_strnstr.c	\
 			ft_calloc.c		\
 			ft_strdup.c		\
+			ft_substr.c		\
+			ft_strjoin.c	\
 
 OBJS = $(LIB:%.c=%.o)
 

@@ -5,15 +5,16 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: mmonclus <mmonclus@student.42urduliz.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/12/19 09:59:21 by mmonclus          #+#    #+#             */
-/*   Updated: 2022/12/19 11:23:56 by mmonclus         ###   ########.fr       */
+/*   Created: 2022/12/19 12:08:08 by mmonclus          #+#    #+#             */
+/*   Updated: 2022/12/19 17:55:53 by mmonclus         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
-#include <string.h>
 #include "libft.h"
+#include <ctype.h>
 #include <stdlib.h>
+#include <string.h>
+#include <stdio.h>
 
 char	*ft_strdup(const char *s1)
 {
@@ -21,12 +22,12 @@ char	*ft_strdup(const char *s1)
 	char	*aux;
 
 	i = 0;
-	aux = (char *)malloc((strlen(s1) + 1) * sizeof(char));
+	aux = malloc((ft_strlen(s1) + 1) * sizeof(char));
 	if (!aux)
 		return (0);
 	while (s1[i])
 	{
-		aux[i] = s1[i];
+		aux[i] = ((char *)s1)[i];
 		i++;
 	}
 	aux[i] = '\0';
@@ -35,10 +36,9 @@ char	*ft_strdup(const char *s1)
 
 /* int	main(void)
 {
-	char s1[] = "tengo hambre";
+	char	s1[] = "hellooo";
 
-	printf("%s\n", strdup(s1));
-	printf("%s", ft_strdup(s1));
-	return (0);
+	printf("%s\n", ft_strdup(s1));
+	printf("%s", strdup(s1));
 }
  */

@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_calloc.c                                        :+:      :+:    :+:   */
+/*   ft_strjoin.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mmonclus <mmonclus@student.42urduliz.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/12/19 11:42:26 by mmonclus          #+#    #+#             */
-/*   Updated: 2022/12/19 16:08:09 by mmonclus         ###   ########.fr       */
+/*   Created: 2022/12/19 15:26:15 by mmonclus          #+#    #+#             */
+/*   Updated: 2022/12/19 17:56:01 by mmonclus         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,27 +15,37 @@
 #include <stdlib.h>
 #include <string.h>
 
-void	*ft_calloc(size_t count, size_t size)
+char	*ft_strjoin(char const *s1, char const *s2)
 {
-	void	*aux;
-	size_t	i;
+	char	*aux;
+	int		i;
+	int		j;
 
-	i = 0;
-	aux = (char *)malloc(count * size);
+	i = -1;
+	aux = (char *)malloc((ft_strlen(s1) + ft_strlen(s2) + 1) * sizeof(char));
 	if (!aux)
 		return (0);
-	while (i < count * size)
+	if (!s1 && !s2)
+		return (0);
+	while (s1[++i])
+		aux[i] = s1[i];
+	j = 0;
+	while (s2[j])
 	{
-		((char *)aux)[i] = '\0';
+		aux[i] = s2[j];
+		j++;
 		i++;
 	}
+	aux[i] = '\0';
 	return (aux);
 }
 
 /* int	main(void)
 {
-	printf("%s", calloc(4, 5));
-	printf("%s", ft_calloc1(4, 5));
+	char	s1[] = "hola";
+	char	s2[] = "hello";
+
+	printf ("%s", ft_strjoin(s1, s2));
 	return (0);
-}
+} 
  */
