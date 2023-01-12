@@ -1,36 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strncmp.c                                       :+:      :+:    :+:   */
+/*   ft_strmapi.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mmonclus <mmonclus@student.42urduliz.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/12/15 14:56:54 by mmonclus          #+#    #+#             */
-/*   Updated: 2023/01/09 12:34:54 by mmonclus         ###   ########.fr       */
+/*   Created: 2022/12/22 15:02:13 by mmonclus          #+#    #+#             */
+/*   Updated: 2022/12/22 15:25:41 by mmonclus         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_strncmp(const char *s1, const char *s2, size_t n)
+char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
 {
-	size_t	i;
+	int		i;
+	char	*str;
 
-	i = 0;
-	while (i < n && (s1[i] || s2[i]))
-	{
-		if (s1[i] != s2[i])
-			return (((unsigned char *)s1)[i] - ((unsigned char *)s2)[i]);
-		i++;
-	}
-	return (0);
+	i = -1;
+	str = (char *)malloc((ft_strlen(s) + 1) * sizeof(char));
+	if (!str)
+		return (0);
+	if (!s)
+		return (0);
+	while (s[++i])
+		str[i] = f(i, s[i]);
+	str[i] = '\0';
+	return (str);
 }
 
 /* int	main(void)
 {
-	const char	*s1 = "abcxdfgsdfg";
-	const char	*s2 = "abcdefgxyz";
+	char	s[] = "hellooo";
 
-	printf("%d\n", ft_strncmp(s1, s2, 6));
-	printf("%d", strncmp(s1, s2, 6));
+	prinft("%s", ft_strmapi)
 } */

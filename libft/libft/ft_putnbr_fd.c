@@ -1,36 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strncmp.c                                       :+:      :+:    :+:   */
+/*   ft_putnbr_fd.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mmonclus <mmonclus@student.42urduliz.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/12/15 14:56:54 by mmonclus          #+#    #+#             */
-/*   Updated: 2023/01/09 12:34:54 by mmonclus         ###   ########.fr       */
+/*   Created: 2023/01/12 10:41:45 by mmonclus          #+#    #+#             */
+/*   Updated: 2023/01/12 16:33:37 by mmonclus         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
+#include <stdio.h>
 
-int	ft_strncmp(const char *s1, const char *s2, size_t n)
+void	ft_putnbr_fd(int n, int fd)
 {
-	size_t	i;
+	long	num;
 
-	i = 0;
-	while (i < n && (s1[i] || s2[i]))
+	num = n;
+	if (num < 0)
 	{
-		if (s1[i] != s2[i])
-			return (((unsigned char *)s1)[i] - ((unsigned char *)s2)[i]);
-		i++;
+		write(1, "-", 1);
+		num = num * -1;
 	}
-	return (0);
+	if (num > 9)
+		ft_putnbr_fd(num / 10, fd);
+	ft_putchar_fd((num % 10 + '0'), fd);
 }
 
-/* int	main(void)
+/*int	main(void)
 {
-	const char	*s1 = "abcxdfgsdfg";
-	const char	*s2 = "abcdefgxyz";
-
-	printf("%d\n", ft_strncmp(s1, s2, 6));
-	printf("%d", strncmp(s1, s2, 6));
-} */
+	ft_putnbr_fd(-4564, 1);
+	return (0);
+}
+*/

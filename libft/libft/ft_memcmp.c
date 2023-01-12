@@ -6,7 +6,7 @@
 /*   By: mmonclus <mmonclus@student.42urduliz.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/14 19:34:23 by mmonclus          #+#    #+#             */
-/*   Updated: 2022/12/15 14:34:56 by mmonclus         ###   ########.fr       */
+/*   Updated: 2023/01/10 13:06:56 by mmonclus         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,12 +25,11 @@ int	ft_memcmp(const void *s1, const void *s2, size_t n)
 	return (0);
 }
 
-/* int	main(void)
+/*int	main(void)
 {
-	char	*s1 = "holA";
-	char	*s2 = "hola";
+	char	*s1 = "hoLA";
+	char	*s2 = "hoxa";
 
 	printf("%d\n", ft_memcmp(s1, s2, 4));
 	printf("%d", memcmp(s1, s2, 4));
-}
- */
+}*/

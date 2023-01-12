@@ -1,36 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strncmp.c                                       :+:      :+:    :+:   */
+/*   ft_strtrim.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mmonclus <mmonclus@student.42urduliz.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/12/15 14:56:54 by mmonclus          #+#    #+#             */
-/*   Updated: 2023/01/09 12:34:54 by mmonclus         ###   ########.fr       */
+/*   Created: 2023/01/09 12:47:17 by mmonclus          #+#    #+#             */
+/*   Updated: 2023/01/10 14:26:50 by mmonclus         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_strncmp(const char *s1, const char *s2, size_t n)
-{
+char	*ft_strtrim(char const *s1, char const *set)
+{	
 	size_t	i;
 
-	i = 0;
-	while (i < n && (s1[i] || s2[i]))
-	{
-		if (s1[i] != s2[i])
-			return (((unsigned char *)s1)[i] - ((unsigned char *)s2)[i]);
-		i++;
-	}
-	return (0);
+	if (!s1 || !set)
+		return (0);
+	while (*s1 && ft_strchr(set, *s1))
+		s1++;
+	i = ft_strlen(s1);
+	while (i && ft_strchr(set, *(s1 + i)))
+		i--;
+	return (ft_substr(s1, 0, i + 1));
 }
 
-/* int	main(void)
+/*int	main(void)
 {
-	const char	*s1 = "abcxdfgsdfg";
-	const char	*s2 = "abcdefgxyz";
+	char	*s1 = " x elloxt ";
+	char	*set = "xh ";
 
-	printf("%d\n", ft_strncmp(s1, s2, 6));
-	printf("%d", strncmp(s1, s2, 6));
-} */
+	ft_strtrim(s1, set);
+	return(0);
+}*/
