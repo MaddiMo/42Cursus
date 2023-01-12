@@ -6,7 +6,7 @@
 #    By: mmonclus <mmonclus@student.42urduliz.co    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/11/29 16:42:50 by mmonclus          #+#    #+#              #
-#    Updated: 2022/12/19 15:44:53 by mmonclus         ###   ########.fr        #
+#    Updated: 2023/01/12 16:33:07 by mmonclus         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -37,7 +37,16 @@ LIB		=	ft_atoi.c		\
 			ft_strdup.c		\
 			ft_substr.c		\
 			ft_strjoin.c	\
-
+			ft_putchar_fd.c	\
+			ft_putstr_fd.c	\
+			ft_putendl_fd.c	\
+			ft_strmapi.c	\
+			ft_striteri.c	\
+			ft_strtrim.c	\
+			ft_itoa.c		\
+			ft_split.c		\
+			ft_putnbr_fd.c	
+			
 OBJS = $(LIB:%.c=%.o)
 
 CC = gcc

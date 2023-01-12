@@ -6,7 +6,7 @@
 /*   By: mmonclus <mmonclus@student.42urduliz.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/14 15:51:46 by mmonclus          #+#    #+#             */
-/*   Updated: 2022/12/15 11:45:04 by mmonclus         ###   ########.fr       */
+/*   Updated: 2023/01/09 10:49:07 by mmonclus         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,10 +26,15 @@ void	*ft_memmove(void *dst, const void *src, size_t len)
 			len--;
 		}
 	}
-	i = -1;
+	i = 0;
 	if (src > dst)
-		while (++i < len)
+	{
+		while (i < len)
+		{
 			((unsigned char *)dst)[i] = ((unsigned char *)src)[i];
+			i++;
+		}
+	}
 	return (dst);
 }
 
@@ -39,7 +44,6 @@ void	*ft_memmove(void *dst, const void *src, size_t len)
 	char src[60] = "jopelinassaaaaaaaas";
 
 	printf("before: %s\n", dst);
-	ft_memmove(dst, src, 8);
+	ft_memmove(dst, src, 5);
 	printf("after: %s", dst);
-}
-*/
+} */

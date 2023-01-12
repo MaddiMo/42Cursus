@@ -1,36 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strncmp.c                                       :+:      :+:    :+:   */
+/*   ft_putchar_fd.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mmonclus <mmonclus@student.42urduliz.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/12/15 14:56:54 by mmonclus          #+#    #+#             */
-/*   Updated: 2023/01/09 12:34:54 by mmonclus         ###   ########.fr       */
+/*   Created: 2022/12/21 09:53:46 by mmonclus          #+#    #+#             */
+/*   Updated: 2022/12/21 11:26:34 by mmonclus         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
+#include <stdio.h>
 
-int	ft_strncmp(const char *s1, const char *s2, size_t n)
+void	ft_putchar_fd(char c, int fd)
 {
-	size_t	i;
-
-	i = 0;
-	while (i < n && (s1[i] || s2[i]))
-	{
-		if (s1[i] != s2[i])
-			return (((unsigned char *)s1)[i] - ((unsigned char *)s2)[i]);
-		i++;
-	}
-	return (0);
+	write(fd, &c, 1);
 }
 
 /* int	main(void)
 {
-	const char	*s1 = "abcxdfgsdfg";
-	const char	*s2 = "abcdefgxyz";
+	char	c = 'c';
+	int		fd = 5;
 
-	printf("%d\n", ft_strncmp(s1, s2, 6));
-	printf("%d", strncmp(s1, s2, 6));
-} */
+	ft_putchr_fd(c, fd);
+	return (0);
+}
+ */

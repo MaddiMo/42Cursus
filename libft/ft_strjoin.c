@@ -6,7 +6,7 @@
 /*   By: mmonclus <mmonclus@student.42urduliz.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/19 15:26:15 by mmonclus          #+#    #+#             */
-/*   Updated: 2022/12/19 17:56:01 by mmonclus         ###   ########.fr       */
+/*   Updated: 2022/12/21 09:44:54 by mmonclus         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,11 +29,10 @@ char	*ft_strjoin(char const *s1, char const *s2)
 		return (0);
 	while (s1[++i])
 		aux[i] = s1[i];
-	j = 0;
-	while (s2[j])
+	j = -1;
+	while (s2[++j])
 	{
 		aux[i] = s2[j];
-		j++;
 		i++;
 	}
 	aux[i] = '\0';

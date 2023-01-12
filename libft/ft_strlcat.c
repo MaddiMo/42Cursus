@@ -6,7 +6,7 @@
 /*   By: mmonclus <mmonclus@student.42urduliz.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/07 17:40:44 by mmonclus          #+#    #+#             */
-/*   Updated: 2022/12/09 16:36:51 by mmonclus         ###   ########.fr       */
+/*   Updated: 2023/01/09 11:54:27 by mmonclus         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,18 +30,19 @@ size_t	ft_strlcat(char *dst, const char *src, size_t dstsize)
 	}
 	if (i + j < dstsize)
 		dst[i + j] = '\0';
-	return (i + ft_strlen(src));
+	return (ft_strlen(src) + i);
 }
 
-/* int	main(void)
-{
-	char		dst[] = "hellopeople";
-	const char	src[]= "comi";
-	char		dst1[] = "hellopeople";
-	const char	src1[] = "comi";
+// int	main(void)
+// {
+// 	char		dst[16] = "hello";
+// 	const char	src[]= "comida";
+// 	char		dst1[16] = "hello";
+// 	const char	src1[] = "comida";
 
-	printf("%zu\n", ft_strlcat(dst, src, 13));
-	printf("%zu\n", strlcat(dst1, src1, 13));
-	return (0);
-}
- */
+// 	printf("%zu\n", ft_strlcat(dst, src, 3));
+// 	printf("%s\n", dst);
+// 	printf("%zu\n", strlcat(dst1, src1, 3));
+// 	printf("%s\n", dst1);
+// 	return (0);
+// }
